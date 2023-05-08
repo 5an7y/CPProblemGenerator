@@ -3,7 +3,6 @@ import os
 import pathlib
 import subprocess
 from tqdm import tqdm
-import time
 
 # Initialize parser
 parser = argparse.ArgumentParser(description = "Program to generate the cases of a problem")
@@ -44,7 +43,6 @@ with tqdm(total = num_lines) as pbar:
             subprocess.run(f"{exe_path} {path}/cases/{case_args}", check=True)
         except subprocess.CalledProcessError as e:
             errors.append((case_name, e.output))
-        time.sleep(2)
         pbar.update(1)
 
 f.close()
