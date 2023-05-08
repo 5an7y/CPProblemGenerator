@@ -38,4 +38,5 @@ for x in path.parts[:-1]:
 shutil.copytree(template_dir, path)
 if not args.checker:
     os.remove(path / 'checker.cpp')
+
 print(f"Problem {path} created sucessfully!")
