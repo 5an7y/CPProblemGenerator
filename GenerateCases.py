@@ -18,6 +18,8 @@ path = args.path
 gen_path = path/"case_generator.cpp"
 exe_path = path/"case_generator.exe"
 args_path = path/"cases.arg"
+solution_path = path/"solution/solution.cpp"
+sol_exe_path  = path/"solution/solution.exe"
 
 if not os.path.isfile(gen_path):
     print(f"Didn't found the generator {gen_path}")
@@ -27,9 +29,13 @@ if not os.path.isfile(args_path):
     print(f"Didn't found the cases arguments {args_path}")
     exit()
 
+if args.use_solution:
+    if not os.path.isfile(solution_path):
+        print(f"Didn't found the solution {solution_path}")
+        exit()
+    subprocess.run(f"g++ {solution_path} -std=c++20 -o {sol_exe_path}", check=True)
 
 subprocess.run(f"g++ {gen_path} -I ./Libs -std=c++20 -o {exe_path}", check=True)
-
 num_lines = sum(1 for line in open(args_path))
 f = open(args_path, "r")
 errors = []
@@ -42,7 +48,15 @@ with tqdm(total = num_lines) as pbar:
         try :
             subprocess.run(f"{exe_path} {path}/cases/{case_args}", check=True)
         except subprocess.CalledProcessError as e:
-            errors.append((case_name, e.output))
+            errors.append((case_name, e))
+        else:
+            if args.use_solution:
+                input_file  = open(f"{path}/cases/{case_name}.in", 'r')
+                output_file = open(f"{path}/cases/{case_name}.out", 'w')
+                subprocess.run(f"{sol_exe_path}", stdin = input_file, stdout = output_file, check=True)
+                input_file.close()
+                output_file.close()
+
         pbar.update(1)
 
 f.close()
