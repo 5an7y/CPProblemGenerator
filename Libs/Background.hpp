@@ -16,6 +16,7 @@ namespace Background {
                 STNode(T l_, T r_) {
                     l = l_;
                     r = r_;
+                    l_node = r_node = NULL;
                     tam = r - l + 1;
                 }
 
@@ -59,15 +60,15 @@ namespace Background {
                 
                 uint64_t l_sz = node -> l_node -> tam;
 
-                if (k <= l_sz) _get_k(k, node -> l_node); 
-                else _get_k(k - l_sz, node -> r_node);
+                if (k <= l_sz) return _get_k(k, node -> l_node); 
+                return _get_k(k - l_sz, node -> r_node);
             }
 
             void _remove_k(uint64_t k, STNode* node) {
                 node -> tam -= 1;
 
                 if (node -> l == node -> r)
-                    return node -> l;
+                    return;
                 
                 T mit = (node->l + node->r) / 2;
                 if ( !(node -> l_node) )
@@ -77,8 +78,9 @@ namespace Background {
                 
                 uint64_t l_sz = node -> l_node -> tam;
 
-                if (k <= l_sz) _get_k(k, node -> l_node); 
-                else _get_k(k - l_sz, node -> r_node);
+                if (k <= l_sz) _remove_k(k, node -> l_node); 
+                else _remove_k(k - l_sz, node -> r_node);
+                return;
             }
             
     };
