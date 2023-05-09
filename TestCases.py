@@ -29,7 +29,7 @@ parser = argparse.ArgumentParser(description = "Program to generate the cases of
 
 # Adding arguments
 parser.add_argument('path', type=pathlib.Path, help = "Directory where the problem is")
-parser.add_argument('--time_limit', type=int, default=1000, help = "Time Limit in ms")
+parser.add_argument('--time_limit', type=int, default=10000, help = "Time Limit in ms")
 
 # Read arguments from command line
 args = parser.parse_args()
