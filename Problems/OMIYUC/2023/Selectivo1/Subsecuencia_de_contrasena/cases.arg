@@ -1,0 +1,36 @@
+same_size_1.si SameSize Si
+same_size_1.no SameSize No
+same_size_2.si SameSize Si
+same_size_2.no SameSize No
+same_size_3.si SameSize Si
+same_size_3.no SameSize No
+same_char_1.si SameChar Si
+same_char_1.no SameChar No
+same_char_2.si SameChar Si
+same_char_2.no SameChar No
+same_char_3.si SameChar Si
+same_char_3.no SameChar No
+diff_char_1.si DiffChar Si
+diff_char_1.no DiffChar No
+diff_char_2.si DiffChar Si
+diff_char_2.no DiffChar No
+diff_char_3.si DiffChar Si
+diff_char_3.no DiffChar No
+random_s_1 Random Si 10
+random_s_2 Random No 10
+random_s_3 Random Si 10
+random_s_4 Random No 10
+random_s_5 Random Si 10
+random_s_6 Random No 10
+random_m_1 Random Si 10000
+random_m_2 Random No 10000
+random_m_3 Random Si 10000
+random_m_4 Random No 10000
+random_m_5 Random Si 10000
+random_m_6 Random No 10000
+random_big_1.si Random Si 1000000
+random_big_1.no Random No 1000000
+random_big_2.si Random Si 1000000
+random_big_2.no Random No 1000000
+random_big_3.si Random Si 1000000
+random_big_3.no Random No 1000000
