@@ -65,4 +65,16 @@ namespace Random {
         }
         return vec;
     }
+
+    template <typename T>
+    std::vector<T> rnd_nums_that_sum(T sum, std::size_t sz) {
+        auto uniqueRandom = rnd_unique(0, sum-1, sz);
+        sort(uniqueRandom.begin(), uniqueRandom.end());
+        uniqueRandom.push_back(sum);
+        std::vector<T> vec(sz);
+        for (int i = 1; i <= sz; i++)
+            vec[i - 1] = uniqueRandom[i] - uniqueRandom[i - 1];
+        
+        return vec;
+    }
 }
