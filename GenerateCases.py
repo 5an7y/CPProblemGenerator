@@ -21,6 +21,7 @@ args_path = path/"cases.arg"
 solution_path = path/"solution/solution.cpp"
 sol_exe_path  = path/"solution/solution.exe"
 
+# Check that files exists in the folder
 if not os.path.isfile(gen_path):
     print(f"Didn't found the generator {gen_path}")
     exit()
@@ -35,11 +36,13 @@ if args.use_solution:
         exit()
     subprocess.run(f"g++ {solution_path} -std=c++20 -o {sol_exe_path}", check=True)
 
+# Compile the generator.cpp and parse the cases.arg
 subprocess.run(f"g++ {gen_path} -I ./Libs -std=c++20 -o {exe_path}", check=True)
 num_lines = sum(1 for line in open(args_path))
 f = open(args_path, "r")
 errors = []
 
+# Generate cases
 with tqdm(total = num_lines) as pbar:
     for case_args in f:
         case_name = case_args.split()[0]
@@ -61,6 +64,7 @@ with tqdm(total = num_lines) as pbar:
 
 f.close()
 
+# Show final errors
 if len(errors) > 0:
     print("ERROR WHEN GENERATING SOME CASES:\n")
     print([case_name for case_name, msg in errors])
