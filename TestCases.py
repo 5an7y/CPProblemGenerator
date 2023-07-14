@@ -3,26 +3,45 @@ import os
 import pathlib
 import subprocess
 import time
+import shutil
 
 def solution_ok(c_path, case_name):
-    except_output = []
-    solution_output = []
+    case_out_path = f"{c_path}/{case_name}.out" 
+    user_sol_path = f"{c_path}/{case_name}_sol.out"
+    
+    if validator:
+        case_in_path = f"{c_path}/{case_name}.in"
 
-    f = open(f"{c_path}/{case_name}.out", "r")
-    for x in f:
-        output = x.split()
-        if len(output) > 0:
-            except_output += output
-    f.close()
+        shutil.copyfile(case_in_path,  f"data.in")
+        shutil.copyfile(case_out_path, f"data.out")
+        f = open(user_sol_path, "r")
+        f_out = open(f"{path}/rank.txt", "w")
 
-    f = open(f"{c_path}/{case_name}_sol.out", "r")
-    for x in f:
-        output = x.split()
-        if len(output) > 0:
-            solution_output += output
-    f.close()
+        subprocess.run(f"{validator_exe}", stdin = f, stdout = f_out, timeout=20000, check=True)
+        f.close()
+        f_out.close()
+        with open(f"{path}/rank.txt") as f:
+            ranked = [float(x) for x in next(f).split()][0] # read first line
+            return ranked
+    else:
+        except_output = []
+        solution_output = []
 
-    return except_output == solution_output
+        f = open(case_out_path, "r")
+        for x in f:
+            output = x.split()
+            if len(output) > 0:
+                except_output += output
+        f.close()
+
+        f = open(user_sol_path, "r")
+        for x in f:
+            output = x.split()
+            if len(output) > 0:
+                solution_output += output
+        f.close()
+
+        return except_output == solution_output
 
 # Initialize parser
 parser = argparse.ArgumentParser(description = "Program to generate the cases of a problem")
@@ -31,6 +50,7 @@ parser = argparse.ArgumentParser(description = "Program to generate the cases of
 parser.add_argument('path', type=pathlib.Path, help = "Directory where the problem is")
 parser.add_argument('--time_limit', type=int, default=10000, help = "Time Limit in ms")
 parser.add_argument('--solutions', type=str, nargs='*', default=[], help = "List of solutions to be test it (if none, all will be tested)")
+parser.add_argument('--validator', action='store_true', help = "Use this flag when using your own validator")
 
 # Read arguments from command line
 args = parser.parse_args()
@@ -40,29 +60,38 @@ solutions_path = path/"solution"
 cases_path = path/"cases"
 time_limit = args.time_limit / 1000
 solutions = args.solutions
+validator = args.validator
+validator_path = path/"validator.cpp"
+validator_exe = path/"validator.exe"
 
+# Constants
 FAIL_COLOR = '\033[91m'
 OK_COLOR   = '\033[92m'
 END_COLOR  = '\033[0m'
 CHECK      = '\u2713'
 CROSS      = '\u2717'
+WARNING    = '\033[93m'
 
+# Check if all cases have an in and out file
 cases = [os.path.splitext(case)[0] for case in os.listdir(cases_path)]
 cases = list(dict.fromkeys(cases))
-
 for case in cases:
     if not os.path.isfile(cases_path / (case + ".in")):
         print(f"Missing case {case}.in")
         exit()
-
     if not os.path.isfile(cases_path / (case + ".out")):
         print(f"Missing case {case}.out")
         exit()
 
+if validator:
+    if not os.path.isfile(validator_path):
+        print(f"Missing validator.cpp")
+        exit()
+    subprocess.run(f"g++ {validator_path} -std=c++20 -o {validator_exe}", check=True)
+
+# Run the solutions against each case
 total_cases = len(cases)
-
 print()
-
 sol_map = {}
 for solution in os.listdir(solutions_path):
     if not solution.endswith('.cpp'):
@@ -74,7 +103,6 @@ for solution in os.listdir(solutions_path):
 
     sol_p = solutions_path / solution
     exe_p = solutions_path / (solution[:-4] + ".exe")
-    
     try:
         subprocess.run(f"g++ {sol_p} -std=c++20 -o {exe_p}", check=True)
     except :
@@ -82,6 +110,7 @@ for solution in os.listdir(solutions_path):
 
     mapeo = {
         "AC"  : 0,
+        "PA"  : 0,
         "TLE" : 0,
         "RTE" : 0,
         "WA"  : 0
@@ -104,9 +133,13 @@ for solution in os.listdir(solutions_path):
         else:
             end = time.time()
             elapsed_time = (int) ((end - start) * 1000)
-            if solution_ok(cases_path, case):
+            ranking = (float) (solution_ok(cases_path, case))
+            if ranking == 1.0:
                 print(f"\t{OK_COLOR}{case}: {CHECK} [AC, ms = {elapsed_time}]{END_COLOR}")
                 mapeo["AC"] += 1
+            elif ranking > 0:
+                print(f"\t{WARNING}{case}: {CROSS} [PA, ms = {elapsed_time}]{END_COLOR}")
+                mapeo["PA"] += 1
             else:
                 print(f"\t{FAIL_COLOR}{case}: {CROSS} [WA, ms = {elapsed_time}]{END_COLOR}")
                 mapeo["WA"] += 1
@@ -116,11 +149,19 @@ for solution in os.listdir(solutions_path):
         os.remove(f"{cases_path}/{case}_sol.out")
 
     os.remove(exe_p)
+    # TODO: Fix Score to work with PA. We are only counting AC for now.
+    # TODO: Fix Score to work with testplan to give a correct score.
     score = (mapeo["AC"] / total_cases) * 100
-    print(f"AC = {mapeo['AC']}, WA = {mapeo['WA']}, TLE = {mapeo['TLE']}, RTE = {mapeo['RTE']}, Score = {score:.2f}%")
+    print(f"AC = {mapeo['AC']}, WA = {mapeo['WA']}, PA = {mapeo['PA']}, TLE = {mapeo['TLE']}, RTE = {mapeo['RTE']}, Score = {score:.2f}%")
     print("--------------------------------------------------------------------------------------")
     sol_map[solution] = f"{score:.2f}"
 
 print("Resumen:")
 for key, value in sol_map.items():
     print(f"\t{key} = {value}%")
+
+if validator:
+    os.remove(validator_exe)
+    os.remove('data.in')
+    os.remove('data.out')
+    os.remove(path / 'rank.txt')

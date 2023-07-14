@@ -11,7 +11,7 @@ parser = argparse.ArgumentParser(description = "Program to create a problem usin
  
 # Adding optional argument
 parser.add_argument('path', type=pathlib.Path, help = "Directory where the problem should be wrote \"your/path/problem_name\"")
-parser.add_argument('--checker', action='store_true', help = "Use this flag when creating your own case checker")
+parser.add_argument('--validator', action='store_true', help = "Use this flag when creating your own case validator")
 
 # Read arguments from command line
 args = parser.parse_args()
@@ -36,7 +36,7 @@ for x in path.parts[:-1]:
             break
 
 shutil.copytree(template_dir, path)
-if not args.checker:
-    os.remove(path / 'checker.cpp')
+if not args.validator:
+    os.remove(path / 'validator.cpp')
 
 print(f"Problem {path} created sucessfully!")
