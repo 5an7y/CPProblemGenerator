@@ -30,6 +30,7 @@ parser = argparse.ArgumentParser(description = "Program to generate the cases of
 # Adding arguments
 parser.add_argument('path', type=pathlib.Path, help = "Directory where the problem is")
 parser.add_argument('--time_limit', type=int, default=10000, help = "Time Limit in ms")
+parser.add_argument('--solutions', type=str, nargs='*', default=[], help = "List of solutions to be test it (if none, all will be tested)")
 
 # Read arguments from command line
 args = parser.parse_args()
@@ -38,6 +39,7 @@ path = args.path
 solutions_path = path/"solution"
 cases_path = path/"cases"
 time_limit = args.time_limit / 1000
+solutions = args.solutions
 
 FAIL_COLOR = '\033[91m'
 OK_COLOR   = '\033[92m'
@@ -64,6 +66,8 @@ print()
 sol_map = {}
 for solution in os.listdir(solutions_path):
     if not solution.endswith('.cpp'):
+        continue
+    if len(solutions) > 0 and solution not in solutions:
         continue
 
     print(f"Testing {solution}:")
