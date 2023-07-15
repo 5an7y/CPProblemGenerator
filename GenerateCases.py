@@ -72,3 +72,6 @@ if len(errors) > 0:
     print(errors[0][1])
 
 os.remove(exe_path)
+
+if args.use_solution:
+    os.remove(sol_exe_path)
