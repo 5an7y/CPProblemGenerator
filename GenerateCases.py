@@ -54,6 +54,7 @@ with tqdm(total = num_lines) as pbar:
             errors.append((case_name, e))
         else:
             if args.use_solution:
+                case_name = case_name.rstrip()
                 input_file  = open(f"{path}/cases/{case_name}.in", 'r')
                 output_file = open(f"{path}/cases/{case_name}.out", 'w')
                 subprocess.run(f"{sol_exe_path}", stdin = input_file, stdout = output_file, check=True)

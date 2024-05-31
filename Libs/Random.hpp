@@ -6,6 +6,8 @@
 #include "Background.hpp"
 
 namespace Random {
+
+    // Generates a random number between [a, b]. (inclusive)
     template <typename T>
     T rnd(T a, T b) {
         std::random_device rd; 
@@ -14,6 +16,7 @@ namespace Random {
         return distrib(gen);
     }
 
+    // Generates a random vector filled with numbers between [a, b].
     template <typename T>
     std::vector<T> rnd(T a, T b, std::size_t sz) {
         std::random_device rd; 
@@ -26,6 +29,7 @@ namespace Random {
         return vec;
     }
 
+    // Generates a random vector filled with UNIQUE numbers between [a, b].
     template <typename T>
     std::vector<T> rnd_unique(T a, T b, std::size_t sz) {
         std::vector<T> vec(sz);
@@ -43,6 +47,7 @@ namespace Random {
         return vec;
     }
 
+    // Generates a random pair of numbers between [a, b].
     template <typename T>
     std::pair<T, T> rnd_pair(T a, T b) {
         std::random_device rd; 
@@ -55,6 +60,7 @@ namespace Random {
         return {a1, a2};
     }
 
+    // Generates a vector filled with random pair of numbers between [a, b].
     template <typename T>
     std::vector<std::pair<T, T>> rnd_pair(T a, T b, std::size_t sz) {
         std::random_device rd; 
@@ -70,6 +76,7 @@ namespace Random {
         return vec;
     }
 
+    // Generates a vector with random numbers, such that the sum of all numbers equals SUM. If allow_zero flag is enable, zeros are allowed.
     template <typename T>
     std::vector<T> rnd_nums_that_sum(T sum, std::size_t sz, bool allow_zero = false) {
         std::vector<T> uniqueRandom;
@@ -85,12 +92,13 @@ namespace Random {
         return vec;
     }
 
+    // Generates a random tree, the return vector are the edges of the tree.
     std::vector<std::pair<int, int>> rnd_tree(int N) {
         if(N == 1) return {};
 
         auto parents = rnd(1, N-1, N);
         std::vector<std::pair<int, int>> vec(N);
-        for (int i = 0; i < N; i++) { 
+        for (int i = 0; i < N; i++) {
             parents[i] = (parents[i] + i) % N;
             vec[i] = ( 
                 rnd(0, 1) ? std::make_pair(i, parents[i]) : std::make_pair(parents[i], i)
@@ -102,7 +110,11 @@ namespace Random {
         return vec;
     }
 
+    // Generates a random forest, the return vector are the edges of the forest. N is the numbers of nodes and trees the number of trees in the forest.
     std::vector<std::pair<int, int>> rnd_forest(int N, int trees) {
+        if (N > trees) {
+            throw std::invalid_argument("The number of nodes should be at least equal to the number of forest.");
+        }
         auto tree_szs = rnd_nums_that_sum(N, trees);
         auto permutation = rnd_unique(0, N-1, N);
         std::vector<std::pair<int, int>> edges;
