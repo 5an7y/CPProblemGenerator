@@ -11,10 +11,11 @@ namespace Generator {
     std::stringstream arguments;
 
     void init_generator(int argc, char *argv[]) {
-        if (argc <= 2) 
+        if (argc < 2) 
             throw std::invalid_argument("Missing requiered argument \"case_name\"");
         
         std::string case_in_name(argv[1]), case_out_name(argv[1]);
+        if (case_in_name.back() == '\n') case_in_name.pop_back(), case_out_name.pop_back();
         case_in_name += ".in"; case_out_name += ".out";
 
         case_in.open(case_in_name.c_str());
