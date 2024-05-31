@@ -1,0 +1,12 @@
+neg1 ALLNEG 8
+neg2 ALLNEG 100
+pos1 ALLPOS 9
+pos2 ALLPOS 100
+rnd1 RAND 6
+rnd2 RAND 9
+rnd3 RAND 18
+rnd4 RAND 39
+rnd5 RAND 47
+rnd6 RAND 56
+rnd7 RAND 73
+rnd8 RAND 100

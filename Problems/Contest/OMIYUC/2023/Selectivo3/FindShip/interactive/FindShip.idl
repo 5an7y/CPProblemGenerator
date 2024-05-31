@@ -1,0 +1,7 @@
+interface Main {
+	[NoReturn] int Conocer([Range(0, 300)] int x, [Range(0, 300)] int y);
+};
+
+interface FindShip {
+	void Encontrar(int N, int M, int X);
+};

@@ -1,0 +1,14 @@
+rand1 RAND 15
+rand2 RAND 100
+per1 PER 8
+per2 PER 21
+per3 PER 56
+per4 PER 87
+per5 PER 100
+per6 PER 1
+rep1 REP 12
+rep2 REP 45
+sumeq1 SUMEQ 10
+sumeq2 SUMEQ 20
+maxi1 MAX 7
+maxi2 MAX 99

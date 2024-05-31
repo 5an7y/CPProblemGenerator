@@ -1,0 +1,17 @@
+AllSameSmall 21 SAME
+AllSameBig 4500 SAME
+AllDifferent 20 DIFF
+RandomBig1 3901 RAND
+RandomBig2 5000 RAND
+RandomBig3 4892 RAND
+RandomBig4 3829 RAND
+RandomBig5 4023 RAND
+RandomSmall1 10 RAND
+RandomSmall2 39 RAND
+RandomSmall3 8 RAND
+RandomSmall4 22 RAND
+RandomSmall5 50 RAND
+AllOdd1 1200 ODD
+AllOdd2 837 ODD
+AllEven1 1200 EVEN
+AllEven2 938 EVEN

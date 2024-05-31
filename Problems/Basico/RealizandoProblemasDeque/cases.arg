@@ -1,0 +1,12 @@
+rand1 RAND 10
+rand2 RAND 24
+rand3 RAND 46
+rand4 RAND 58
+rand5 RAND 71
+rand6 RAND 100
+all_less1 LESS 15
+all_less2 LESS 66
+all_greater1 GREAT 21
+all_greater2 GREAT 89
+blocked1 BLOCKED 8
+blocked2 BLOCKED 45

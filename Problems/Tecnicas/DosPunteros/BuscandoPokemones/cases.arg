@@ -1,0 +1,12 @@
+case0 100 AllSame
+case01 1000 Repeat
+case1 1000 Normal
+case2 1000 Normal
+case3 1000 Normal
+case4 1000 Normal
+case5 100000 Normal
+case6 100000 Normal
+case7 100000 Normal
+case8 100000 Normal
+case9 100000 Initial
+case10 100000 Final

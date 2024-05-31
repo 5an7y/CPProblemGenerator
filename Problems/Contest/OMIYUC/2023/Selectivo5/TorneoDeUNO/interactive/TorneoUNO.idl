@@ -1,0 +1,7 @@
+interface Main {
+	int Mejor(int x, int y);
+};
+
+interface TorneoUNO {
+	int EncontrarGanador(int N);
+};

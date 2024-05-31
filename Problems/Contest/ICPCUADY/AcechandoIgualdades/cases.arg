@@ -1,0 +1,12 @@
+AllSame 30 1
+Binary 40 2
+AllDistincSmall 10 -1
+AllDistincBig 100 -1
+RandomSmall1 40 20
+RandomSmall2 34 12
+RandomSmall3 10 100
+RandomBig1 100 100
+RandomBig2 87 100
+RandomBig3 93 78
+RandomBig4 99 45
+RandomBig5 100 10
