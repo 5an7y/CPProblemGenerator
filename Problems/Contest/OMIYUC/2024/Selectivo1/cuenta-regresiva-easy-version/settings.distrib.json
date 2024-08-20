@@ -1,0 +1,26 @@
+{
+  "cases": {
+    "statement_001": {
+      "in": "2\n42",
+      "out": "46",
+      "weight": 1
+    },
+    "statement_002": {
+      "in": "10\n1234567890",
+      "out": "371742088",
+      "weight": 1
+    }
+  },
+  "limits": {
+    "ExtraWallTime": "0s",
+    "MemoryLimit": 33554432,
+    "OutputLimit": 512000,
+    "OverallWallTimeLimit": "1m0s",
+    "TimeLimit": "1s"
+  },
+  "validator": {
+    "name": "token",
+    "group_score_policy": "sum-if-not-zero",
+    "tolerance": 1e-9
+  }
+}

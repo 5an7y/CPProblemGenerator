@@ -1,0 +1,149 @@
+{
+  "Cases": [
+    {
+      "Cases": [
+        {
+          "Name": "1.caso_1",
+          "Weight": 10
+        },
+        {
+          "Name": "1.caso_2",
+          "Weight": 50
+        },
+        {
+          "Name": "1.caso_3",
+          "Weight": 50
+        },
+        {
+          "Name": "1.caso_4",
+          "Weight": 50
+        },
+        {
+          "Name": "1.caso_5",
+          "Weight": 50
+        },
+        {
+          "Name": "1.caso_9",
+          "Weight": 50
+        }
+      ],
+      "Name": "1"
+    },
+    {
+      "Cases": [
+        {
+          "Name": "1000.caso_a",
+          "Weight": 25
+        },
+        {
+          "Name": "1000.caso_b",
+          "Weight": 22.5
+        },
+        {
+          "Name": "1000.caso_c",
+          "Weight": 50
+        },
+        {
+          "Name": "1000.caso_d",
+          "Weight": 50
+        },
+        {
+          "Name": "1000.caso_e",
+          "Weight": 50
+        },
+        {
+          "Name": "1000.caso_f",
+          "Weight": 50
+        },
+        {
+          "Name": "1000.caso_g",
+          "Weight": 50
+        },
+        {
+          "Name": "1000.caso_h",
+          "Weight": 50
+        }
+      ],
+      "Name": "1000"
+    },
+    {
+      "Cases": [
+        {
+          "Name": "400000.caso_a",
+          "Weight": 45
+        },
+        {
+          "Name": "400000.caso_b",
+          "Weight": 50
+        },
+        {
+          "Name": "400000.caso_c",
+          "Weight": 50
+        },
+        {
+          "Name": "400000.caso_d",
+          "Weight": 50
+        },
+        {
+          "Name": "400000.caso_e",
+          "Weight": 50
+        },
+        {
+          "Name": "400000.caso_f",
+          "Weight": 50
+        },
+        {
+          "Name": "400000.caso_g",
+          "Weight": 50
+        }
+      ],
+      "Name": "400000"
+    },
+    {
+      "Cases": [
+        {
+          "Name": "5.caso_12345",
+          "Weight": 50
+        },
+        {
+          "Name": "5.caso_17215",
+          "Weight": 22.5
+        },
+        {
+          "Name": "5.caso_2960",
+          "Weight": 50
+        },
+        {
+          "Name": "5.caso_42",
+          "Weight": 20
+        },
+        {
+          "Name": "5.caso_52404",
+          "Weight": 50
+        },
+        {
+          "Name": "5.caso_67",
+          "Weight": 50
+        },
+        {
+          "Name": "5.caso_99999",
+          "Weight": 50
+        }
+      ],
+      "Name": "5"
+    }
+  ],
+  "Limits": {
+    "ExtraWallTime": "0s",
+    "MemoryLimit": 33554432,
+    "OutputLimit": 512000,
+    "OverallWallTimeLimit": "1m0s",
+    "TimeLimit": "1s"
+  },
+  "Slow": false,
+  "Validator": {
+    "Name": "token",
+    "Tolerance": 1e-9,
+    "GroupScorePolicy": "sum-if-not-zero"
+  }
+}

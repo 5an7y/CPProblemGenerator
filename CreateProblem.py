@@ -12,12 +12,26 @@ parser = argparse.ArgumentParser(description = "Program to create a problem usin
 # Adding optional argument
 parser.add_argument('path', type=pathlib.Path, help = "Directory where the problem should be wrote \"your/path/problem_name\"")
 parser.add_argument('--validator', action='store_true', help = "Use this flag when creating your own case validator")
+parser.add_argument('--testplan', action='store_true', help = "Use this flag when you want to create only the testplan based on the cases.arg")
 
 # Read arguments from command line
 args = parser.parse_args()
 
 path = args.path
 p = pathlib.PurePath()
+
+# Check if testplan
+if args.testplan :
+    args_path = path/"cases.arg"
+    testplan_path = path/"testplan"
+    f = open(args_path, "r")
+    testplan_file = open(testplan_path, "w")
+    for case_args in f:
+        case_name = case_args.split()[0]
+        testplan_file.write(case_name + " 0\n")
+    testplan_file.close()
+    f.close()
+    exit()
 
 if os.path.isdir(path):
     print(f"The directory {path} already exists!")

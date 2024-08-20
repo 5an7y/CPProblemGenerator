@@ -1,0 +1,136 @@
+{
+  "Cases": [
+    {
+      "Cases": [
+        {
+          "Name": "bruta.caso_1",
+          "Weight": 20
+        },
+        {
+          "Name": "bruta.caso_10",
+          "Weight": 50
+        },
+        {
+          "Name": "bruta.caso_11",
+          "Weight": 50
+        },
+        {
+          "Name": "bruta.caso_2",
+          "Weight": 50
+        },
+        {
+          "Name": "bruta.caso_3",
+          "Weight": 50
+        },
+        {
+          "Name": "bruta.caso_4",
+          "Weight": 50
+        },
+        {
+          "Name": "bruta.caso_5",
+          "Weight": 80
+        },
+        {
+          "Name": "bruta.caso_6",
+          "Weight": 50
+        },
+        {
+          "Name": "bruta.caso_7",
+          "Weight": 50
+        },
+        {
+          "Name": "bruta.caso_8",
+          "Weight": 50
+        },
+        {
+          "Name": "bruta.caso_9",
+          "Weight": 50
+        }
+      ],
+      "Name": "bruta"
+    },
+    {
+      "Cases": [
+        {
+          "Name": "final.caso_1",
+          "Weight": 60
+        },
+        {
+          "Name": "final.caso_10",
+          "Weight": 50
+        },
+        {
+          "Name": "final.caso_2",
+          "Weight": 50
+        },
+        {
+          "Name": "final.caso_3",
+          "Weight": 50
+        },
+        {
+          "Name": "final.caso_4",
+          "Weight": 50
+        },
+        {
+          "Name": "final.caso_5",
+          "Weight": 50
+        },
+        {
+          "Name": "final.caso_6",
+          "Weight": 50
+        },
+        {
+          "Name": "final.caso_7",
+          "Weight": 50
+        },
+        {
+          "Name": "final.caso_8",
+          "Weight": 50
+        },
+        {
+          "Name": "final.caso_9",
+          "Weight": 50
+        }
+      ],
+      "Name": "final"
+    },
+    {
+      "Cases": [
+        {
+          "Name": "iguales.caso_1",
+          "Weight": 20
+        },
+        {
+          "Name": "iguales.caso_2",
+          "Weight": 50
+        },
+        {
+          "Name": "iguales.caso_3",
+          "Weight": 50
+        },
+        {
+          "Name": "iguales.caso_4",
+          "Weight": 50
+        },
+        {
+          "Name": "iguales.caso_5",
+          "Weight": 50
+        }
+      ],
+      "Name": "iguales"
+    }
+  ],
+  "Limits": {
+    "ExtraWallTime": "0s",
+    "MemoryLimit": 33554432,
+    "OutputLimit": 256000,
+    "OverallWallTimeLimit": "1m0s",
+    "TimeLimit": "1s"
+  },
+  "Slow": false,
+  "Validator": {
+    "Name": "token",
+    "Tolerance": 1e-9,
+    "GroupScorePolicy": "sum-if-not-zero"
+  }
+}

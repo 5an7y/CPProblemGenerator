@@ -1,0 +1,80 @@
+subtarea1.caso1 100 MAXED ESQUINA 1
+subtarea1.caso2 88 MAXED ESQUINA 1
+subtarea1.caso3 1 MAXED ESQUINA 1
+subtarea1.caso4 67 MAXED ESQUINA 1
+subtarea1.caso5 100 MAXED ESQUINA 1
+subtarea2.caso1 1000000 RAND ESQUINA 1
+subtarea2.caso2 435634 RAND ESQUINA 1
+subtarea2.caso3 1000000 EQ ESQUINA 1
+subtarea2.caso4 782423 RAND ESQUINA 1
+subtarea2.caso5 942378 RAND ESQUINA 1
+subtarea3.caso1 1000000 IN_LIMIT RAND
+subtarea3.caso2 643326 IN_LIMIT RAND
+subtarea3.caso3 323621 IN_LIMIT RAND
+subtarea3.caso4 478312 IN_LIMIT RAND
+subtarea3.caso5 387472 IN_LIMIT RAND
+subtarea4.caso1 99999999 IN_LIMIT CENTER
+subtarea4.caso2 64723321 IN_LIMIT CENTER
+subtarea4.caso3 32673623 OFF_LIMIT CENTER
+subtarea4.caso4 87827317 OFF_LIMIT CENTER
+subtarea4.caso5 78297479 RAND CENTER
+subtarea4.caso6 47238743 RAND CENTER
+subtarea4.caso7 84378231 RAND CENTER
+subtarea5.caso1 50 IN_LIMIT RAND
+subtarea5.caso2 40 IN_LIMIT RAND
+subtarea5.caso3 50 OFF_LIMIT RAND
+subtarea5.caso4 40 OFF_LIMIT RAND
+subtarea5.caso5 37 RAND RAND
+subtarea5.caso6 50 RAND RAND
+subtarea5.caso7 1 RAND RAND
+subtarea5.caso8 42 EQ ESQUINA 10
+subtarea5.caso9 53 EQ ESQUINA 8
+subtarea5.caso10 42 ANT ESQUINA 10
+subtarea5.caso11 53 ANT ESQUINA 8
+subtarea6.caso1 1000 IN_LIMIT RAND
+subtarea6.caso2 489 IN_LIMIT RAND
+subtarea6.caso3 842 OFF_LIMIT RAND
+subtarea6.caso4 731 OFF_LIMIT RAND
+subtarea6.caso5 942 RAND RAND
+subtarea6.caso6 1000 RAND RAND
+subtarea6.caso7 1000 RAND RAND
+subtarea6.caso8 1000 EQ RAND
+subtarea6.caso9 1000 EQ ESQUINA 5
+subtarea6.caso10 753 EQ ESQUINA 6
+subtarea6.caso11 967 EQ ESQUINA 7
+subtarea6.caso11 900 EQ ESQUINA 9
+subtarea6.caso12 1000 ANT ESQUINA 5
+subtarea6.caso13 753 ANT ESQUINA 6
+subtarea6.caso14 967 ANT ESQUINA 7
+subtarea6.caso15 900 ANT ESQUINA 9
+subtarea7.caso1 100000000 IN_LIMIT RAND
+subtarea7.caso2 100000000 OFF_LIMIT RAND
+subtarea7.caso3 100000000 MAXED ESQUINA 1
+subtarea7.caso4 100000000 MAXED CENTER
+subtarea7.caso5 100000000 MAXED RAND
+subtarea7.caso6 100000000 RAND RAND
+subtarea7.caso7 100000000 RAND RAND
+subtarea7.caso8 37827429 RAND CENTER
+subtarea7.caso9 46782778 RAND CENTER
+subtarea7.caso10 37486323 RAND ESQUINA 8
+subtarea7.caso11 87436647 RAND RAND
+subtarea7.caso12 67324562 OFF_LIMIT RAND
+subtarea7.caso13 1 RAND RAND
+subtarea7.caso14 87436647 EQ RAND
+subtarea7.caso15 100000000 OFF_LIMIT RAND
+subtarea7.caso16 100000000 EQ RAND
+subtarea7.caso17 100000000 EQ CENTER
+subtarea7.caso18 100000000 EQ ESQUINA 1
+subtarea7.caso19 100000000 ANT RAND
+subtarea7.caso20 100000000 ANT RAND
+subtarea7.caso21 100000000 OFF_LIMIT RAND
+subtarea7.caso22 4782343 EQ ESQUINA 2
+subtarea7.caso23 8782343 EQ ESQUINA 3
+subtarea7.caso24 6782343 EQ ESQUINA 4
+subtarea7.caso26 9782343 EQ ESQUINA 11
+subtarea7.caso27 4782343 EQ ESQUINA 12
+subtarea7.caso28 4782343 ANT ESQUINA 2
+subtarea7.caso29 8782343 ANT ESQUINA 3
+subtarea7.caso30 6782343 ANT ESQUINA 4
+subtarea7.caso31 9782343 ANT ESQUINA 11
+subtarea7.caso32 4782343 ANT ESQUINA 12

@@ -1,0 +1,31 @@
+subtarea1.caso1 2 4 FULL
+subtarea1.caso2 2 3 RAND
+subtarea1.caso3 2 2 ON_LINE 
+subtarea1.caso4 2 2 OFF_LINE
+subtarea2.caso1 3 9 FULL
+subtarea2.caso2 3 5 RAND
+subtarea2.caso3 3 6 RAND
+subtarea2.caso4 3 7 RAND
+subtarea2.caso5 3 3 ON_LINE
+subtarea2.caso6 3 3 OFF_LINE
+subtarea3.caso1 47823 47823 SAME_POS
+subtarea3.caso2 100000 100000 SAME_POS
+subtarea3.caso3 86732 86732 SAME_POS
+subtarea4.caso1 100000 100000 RIGHT 10
+subtarea4.caso2 100000 100000 RIGHT 37
+subtarea4.caso3 1000 1000 RIGHT 45
+subtarea4.caso5 1000 1000 RIGHT 100
+subtarea5.caso1 100 10000 RAND
+subtarea5.caso2 53 284 RAND
+subtarea5.caso3 97 489 RAND
+subtarea5.caso4 42 67 MOV 5 5
+subtarea5.caso5 100 300 RAND
+subtarea6.caso1 100000 300000 RAND
+subtarea6.caso2 100000 300000 RAND
+subtarea6.caso3 100000 300000 MOV 4000 3000
+subtarea6.caso4 100000 300000 MOV 1000 1000
+subtarea6.caso5 100000 200000 MOV 0 4782
+subtarea6.caso6 10000 30000 OFF_LINE
+subtarea6.caso7 10000 30000 OFF_LINE
+subtarea6.caso8 1000 1000 MOV 10 10
+subtarea6.caso9 1000 3000 MOV 0 40
